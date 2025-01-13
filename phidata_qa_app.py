@@ -18,6 +18,9 @@ GITHUB_REPO_OWNER = os.environ.get('GITHUB_REPO_OWNER', 'your-github-username')
 GITHUB_REPO_NAME = os.environ.get('GITHUB_REPO_NAME', 'phidata_docs')
 OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
 
+# Streamlit app
+st.set_page_config(page_title="Phidata Documentation Q&A", layout="wide")
+
 # Debugging: Print environment variables
 st.write(f"USE_GITHUB: {USE_GITHUB}")
 st.write(f"GITHUB_REPO_OWNER: {GITHUB_REPO_OWNER}")
@@ -113,9 +116,6 @@ def get_answer(qa_chain, question):
         return result['result']
     except Exception as e:
         return f"An error occurred: {str(e)}"
-
-# Streamlit app
-st.set_page_config(page_title="Phidata Documentation Q&A", layout="wide")
 
 # Custom CSS for better styling and fixing the text input issue
 st.markdown("""
